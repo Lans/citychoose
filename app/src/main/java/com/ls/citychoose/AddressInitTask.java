@@ -36,7 +36,8 @@ public class AddressInitTask extends AsyncTask<String, Void, ArrayList<cn.qqthem
         dialog = ProgressDialog.show(activity, null, "正在初始化数据...", true, true);
     }
 
-    public AddressInitTask(Activity activity) {
+    public AddressInitTask(Activity activity, MyAddressPicker MyAddressPicker) {
+        this.MyAddressPicker = MyAddressPicker;
         this.activity = activity;
         dialog = ProgressDialog.show(activity, null, "正在初始化数据...", true, true);
     }
@@ -83,9 +84,10 @@ public class AddressInitTask extends AsyncTask<String, Void, ArrayList<cn.qqthem
                 public void onAddressPicked(cn.qqtheme.framework.picker.AddressPicker.Province province, cn.qqtheme.framework.picker.AddressPicker.City city, cn.qqtheme.framework.picker.AddressPicker.County county) {
                     if (county == null) {
                         Toast.makeText(activity, "province : " + province + ", city: " + city, Toast.LENGTH_LONG).show();
-                        MyAddressPicker.getAddress(province, city);
+                        MyAddressPicker.getAddress(province, city, null);
                     } else {
                         Toast.makeText(activity, "province : " + province + ", city: " + city + ", county: " + county, Toast.LENGTH_LONG).show();
+                        MyAddressPicker.getAddress(province, city, county);
                     }
                 }
             });

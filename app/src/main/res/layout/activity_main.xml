@@ -12,9 +12,21 @@
         android:onClick="onAddress3Picker"
         android:text="地址选择（只包括省级、地级）" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onAddressPicker"
+        android:text="地址选择（包括省级、地级、县级）" />
+
     <TextView
         android:id="@+id/city_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sdsdsdsddsds"/>
+        android:text="省市" />
+
+    <TextView
+        android:id="@+id/province_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="省市县"/>
 </LinearLayout>
